@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\StudentClassManager.CrossCutting.IoC\StudentClassManager.CrossCutting.IoC.csproj" />
     <ProjectReference Include="..\StudentClassManager.Application\StudentClassManager.Application.csproj" />
+    <ProjectReference Include="..\StudentClassManager.CrossCutting.IoC\StudentClassManager.CrossCutting.IoC.csproj" />
   </ItemGroup>
 
 </Project>

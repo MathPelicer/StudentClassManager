@@ -1,14 +1,14 @@
-﻿using StudentClassManager.Domain.Models;
+﻿using StudentClassManager.Application.Dto;
 
 namespace StudentClassManager.Application.Services.Interfaces
 {
     public interface IClassService
     {
-        Task<List<Class>> GetAllAsync();
+        Task<List<Domain.Models.Class>> GetAllAsync();
 
-        Task UpdateAsync(Dto.Class @class, int Id);
+        Task UpdateAsync(ClassDto @class, int Id);
 
-        Task Insert(Dto.Class @class);
+        Task Insert(ClassDto @class);
 
         Task DisableClassAsync(int id);
     }

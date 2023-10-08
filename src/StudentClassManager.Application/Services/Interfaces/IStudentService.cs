@@ -6,9 +6,9 @@ namespace StudentClassManager.Application.Services.Interfaces
     {
         public Task<List<Student>> GetAllAsync();
 
-        Task UpdateAsync(Dto.Student student, int Id);
+        Task UpdateAsync(Dto.StudentDto student, int Id);
 
-        Task Insert(Dto.Student student);
+        Task Insert(Dto.StudentDto student);
 
         Task DisableStudantAsync(int id);
     }

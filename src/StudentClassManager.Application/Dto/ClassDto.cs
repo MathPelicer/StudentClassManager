@@ -1,6 +1,6 @@
 ﻿namespace StudentClassManager.Application.Dto
 {
-    public class Class
+    public class ClassDto
     {
         public int TurmaId { get; set; }
 

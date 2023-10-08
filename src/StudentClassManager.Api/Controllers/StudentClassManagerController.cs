@@ -3,6 +3,8 @@ using StudentClassManager.Application.Services.Interfaces;
 
 namespace StudentClassManager.Api.Controllers
 {
+    [ApiController]
+    [Route("api/ClassStudent")]
     public class StudentClassManagerController : Controller
     {
         private readonly IClassStudentService classStudentService;

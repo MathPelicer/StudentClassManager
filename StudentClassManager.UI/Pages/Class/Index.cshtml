@@ -1,0 +1,28 @@
+﻿@page
+@model StudentClassManager.UI.Pages.Class.IndexModel
+@{
+}
+
+<a asp-page="CreateClass">Cadastrar turma</a>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id Turma</th>
+                <th>Nome turma</th>
+                <th>Ano</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var existingClasses in Model.classes)
+            {
+                <tr>
+                    <td>@existingClasses.TurmaId</td>
+                    <td>@existingClasses.Turma</td>
+                    <td>@existingClasses.Ano</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

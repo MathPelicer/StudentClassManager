@@ -1,6 +1,6 @@
 ﻿namespace StudentClassManager.Application.Dto
 {
-    public class Student
+    public class StudentDto
     {
         public string Nome { get; set; }
 

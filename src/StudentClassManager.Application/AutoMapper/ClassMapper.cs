@@ -7,7 +7,7 @@ namespace StudentClassManager.Application.AutoMapper
     {
         public ClassMapper() 
         {
-            CreateMap<Dto.Class, Class>().ReverseMap();
+            CreateMap<Dto.ClassDto, Class>().ReverseMap();
         }
 
     }

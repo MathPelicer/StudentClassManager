@@ -4,6 +4,8 @@ using StudentClassManager.Domain.Models;
 
 namespace StudentClassManager.Api.Controllers
 {
+    [ApiController]
+    [Route("api/Student")]
     public class StudentController : Controller
     {
         private readonly IStudentService studentService;
@@ -13,30 +15,36 @@ namespace StudentClassManager.Api.Controllers
             this.studentService = studentService;
         }
 
-        [HttpGet("/students")]
-        public Task<List<Student>> GetAllStudentsAsync()
+        [HttpGet("")]
+        public async Task<ActionResult<List<Student>>> GetAllStudentsAsync()
         {
-            var result = studentService.GetAllAsync();
+            var result = await studentService.GetAllAsync();
 
-            return result;
+            return Ok(result);
         }
 
-        [HttpPost("/student")]
-        public async Task CreateStudentsAsync(Application.Dto.Student student)
+        [HttpPost("")]
+        public async Task<ActionResult> CreateStudentsAsync([FromBody] Application.Dto.StudentDto student)
         {
             await studentService.Insert(student);
+
+            return Ok();
         }
 
-        [HttpPut("/student/{Id}")]
-        public async Task UpdateStudentsAsync(Application.Dto.Student student, int Id)
+        [HttpPut("{Id}")]
+        public async Task<ActionResult> UpdateStudentsAsync([FromBody] Application.Dto.StudentDto student, [FromRoute] int Id)
         {
             await studentService.UpdateAsync(student, Id);
+
+            return Ok();
         }
 
-        [HttpDelete("/student/{Id}")]
-        public async Task DisableStudentAsync(int Id)
+        [HttpDelete("{Id}")]
+        public async Task<ActionResult> DisableStudentAsync([FromRoute]int Id)
         {
             await studentService.DisableStudantAsync(Id);
+
+            return Ok();
         }
     }
 }

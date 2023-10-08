@@ -5,6 +5,7 @@ using StudentClassManager.Application.Services.Interfaces;
 using StudentClassManager.Application.Validators;
 using StudentClassManager.Domain.Interfaces;
 using StudentClassManager.Domain.Models;
+using System.Text;
 
 namespace StudentClassManager.Application.Services
 {
@@ -37,18 +38,19 @@ namespace StudentClassManager.Application.Services
             return result.ToList();
         }
 
-        public async Task Insert(Dto.Student student)
+        public async Task Insert(Dto.StudentDto student)
         {
             StudentValidator validator = new StudentValidator();
 
             await validator.ValidateAndThrowAsync(student);
 
-            var upsertStudent = mapper.Map<Student>(student);
+            var insertStudent = mapper.Map<Student>(student);
+            insertStudent.Senha = sha256(student.Senha);
 
-            await studentRepository.CreateAsync(upsertStudent);
+            await studentRepository.CreateAsync(insertStudent);
         }
 
-        public async Task UpdateAsync(Dto.Student student, int Id)
+        public async Task UpdateAsync(Dto.StudentDto student, int Id)
         {
             var existingStudent = await studentRepository.GetByIdAsync(Id);
 
@@ -65,6 +67,18 @@ namespace StudentClassManager.Application.Services
             upsertStudent.Id = Id;
 
             await studentRepository.UpdateAsync(upsertStudent);
+        }
+
+        private static string sha256(string randomString)
+        {
+            var crypt = new System.Security.Cryptography.SHA256Managed();
+            var hash = new StringBuilder();
+            byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(randomString));
+            foreach (byte theByte in crypto)
+            {
+                hash.Append(theByte.ToString("x2"));
+            }
+            return hash.ToString();
         }
     }
 }

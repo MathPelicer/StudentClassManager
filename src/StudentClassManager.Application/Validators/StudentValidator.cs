@@ -3,7 +3,7 @@ using StudentClassManager.Domain.Models;
 
 namespace StudentClassManager.Application.Validators
 {
-    public class StudentValidator : AbstractValidator<Dto.Student>
+    public class StudentValidator : AbstractValidator<Dto.StudentDto>
     {
         public StudentValidator()
         {

@@ -1,0 +1,28 @@
+﻿@page
+@model StudentClassManager.UI.Pages.Student.IndexModel
+@{
+}
+
+<a asp-page="CreateStudent">Cadastrar aluno</a>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Usuario</th>
+                <th>Senha</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var existingStudents in Model.Students)
+            {
+                <tr>
+                    <td>@existingStudents.Nome</td>
+                    <td>@existingStudents.Usuario</td>
+                    <td>@existingStudents.Senha</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,17 @@
+﻿@page
+@model StudentClassManager.UI.Pages.Student.CreateStudentModel
+@{
+}
+
+<form method="post">
+    <label asp-for="newStudent.Nome">Nome:</label>
+    <input asp-for="newStudent.Nome" class="form-control" />
+
+    <label asp-for="newStudent.Usuario">Usuario:</label>
+    <input asp-for="newStudent.Usuario" class="form-control" />
+
+    <label asp-for="newStudent.Senha">Senha:</label>
+    <input asp-for="newStudent.Senha" class="form-control"/>
+
+    <button type="submit" class="btn btn-primary mt-2">Cadastrar aluno</button>
+</form>

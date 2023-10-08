@@ -37,7 +37,7 @@ namespace StudentClassManager.Application.Services
             return result.ToList();
         }
 
-        public async Task Insert(Dto.Class @class)
+        public async Task Insert(Dto.ClassDto @class)
         {
             ClassValidator validator = new ClassValidator();
 
@@ -48,7 +48,7 @@ namespace StudentClassManager.Application.Services
             await repository.CreateAsync(upsertStudent);
         }
 
-        public async Task UpdateAsync(Dto.Class @class, int Id)
+        public async Task UpdateAsync(Dto.ClassDto @class, int Id)
         {
             var existingClass = await repository.GetByIdAsync(Id);
 

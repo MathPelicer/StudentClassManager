@@ -1,0 +1,17 @@
+﻿@page
+@model StudentClassManager.UI.Pages.Class.CreateClassModel
+@{
+}
+
+<form method="post">
+    <label asp-for="newClass.TurmaId">Id da turma:</label>
+    <input asp-for="newClass.TurmaId" class="form-control" />
+
+    <label asp-for="newClass.Turma">Nome:</label>
+    <input asp-for="newClass.Turma" class="form-control" />
+
+    <label asp-for="newClass.Ano">Ano:</label>
+    <input asp-for="newClass.Ano" class="form-control" type="number" value="2023" />
+
+    <button type="submit" class="btn btn-primary mt-2">Cadastrar turma</button>
+</form>

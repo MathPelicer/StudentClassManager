@@ -2,7 +2,7 @@
 
 namespace StudentClassManager.Application.Validators
 {
-    public class ClassValidator : AbstractValidator<Dto.Class>
+    public class ClassValidator : AbstractValidator<Dto.ClassDto>
     {
         public ClassValidator() 
         {
