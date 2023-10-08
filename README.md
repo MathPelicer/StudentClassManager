@@ -13,3 +13,8 @@
 `dotnet run src/StudentClassManager.Api`
 
 `dotnet run src/StudentClassManager.UI`
+
+# Links:
+
+- `/Students` para página base dos alunos
+- `/Class` para página base das turmas
